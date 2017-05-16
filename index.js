@@ -11,7 +11,10 @@ const mongoHost = process.env.MONGODB_HOST || 'localhost'
 
 mongoose.connect(`mongodb://${mongoHost}/todo`)
 mongoose.connection.on('error', () => {
-  console.log('ERROR: Unable to connect to MongoDB.')
+  console.log('Waiting for connection to MongoDB...')
+  setTimeout(() => {
+    mongoose.connect(`mongodb://${mongoHost}/todo`)
+  }, 2000);
 })
 
 const todos = require('./todos')

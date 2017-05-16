@@ -11,7 +11,7 @@ const mongoHost = process.env.MONGODB_HOST || 'localhost'
 
 mongoose.connect(`mongodb://${mongoHost}/todo`)
 mongoose.connection.on('error', () => {
-  console.log('Unable to connect to MongoDB... retrying')
+  console.log('Waiting for connection to MongoDB...')
   setTimeout(() => {
     mongoose.connect(`mongodb://${mongoHost}/todo`)
   }, 2000);

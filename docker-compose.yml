@@ -6,8 +6,6 @@ services:
       - "27017:27017"
   web:
     build: .
-    ports:
-      - "3000:3000"
     links:
       - "db"
     environment:

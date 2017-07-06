@@ -4,10 +4,14 @@ services:
     image: mongo
     ports:
       - "27017:27017"
+      - "27018:27018"
+      - "27019:27019"
   web:
     build: .
     ports:
       - "3000:3000"
+      - "3001:3001"
+      - "3002:3002"
     links:
       - "db"
     environment:

@@ -4,11 +4,13 @@ services:
     image: mongo
     ports:
       - "27017:27017"
+      - "27018:27018"
   web:
     build: .
     command: npm test
     ports:
       - "3000:3000"
+      - "3001:3001"
     links:
       - "db"
     environment:
